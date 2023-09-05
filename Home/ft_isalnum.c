@@ -20,4 +20,5 @@ int	main(void)
 	printf("%d | %d\n", c2, res2);
 	printf("%d | %d\n", c3, res3);
 	printf("%d | %d\n", c4, res4);
+	return (0);
 }
