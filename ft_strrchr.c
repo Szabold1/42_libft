@@ -1,17 +1,29 @@
-char    *ft_strrchr(const char *str, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/07 12:19:14 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/07 12:21:50 by bszabo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strrchr(const char *str, int c)
 {
-    char    *temp;
+	char	*temp;
 
-    temp = 0;
-    while (*str)
-    {
-        if (c == *str)
-            temp = (char *)str;
-        str++;
-    }
-    return (temp);
+	temp = 0;
+	while (*str)
+	{
+		if (c == *str)
+			temp = (char *)str;
+		str++;
+	}
+	return (temp);
 }
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -22,3 +34,4 @@ int main(void)
     printf("last x: %s\n", res2);
     return (0);
 }
+*/

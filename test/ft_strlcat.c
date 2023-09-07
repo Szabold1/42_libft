@@ -15,7 +15,7 @@
 size_t	length_of(char *str)
 {
 	size_t	i;
-
+	
 	i = 0;
 	while (str[i])
 		i++;
@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	int		i;
 	size_t	dest_len;
 	size_t	src_len;
-
+	
 	i = 0;
 	dest_len = length_of(dest);
 	src_len = length_of((char *)src);
@@ -41,15 +41,19 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[dest_len + i] = '\0';
 	return (dest_len + src_len);
 }
-/*
+
 #include <stdio.h>
+//#include <bsd/string.h>
 int	main(void)
 {
 	char dest[] = "hello";
+	//char desto[] = "hello";
 	char src[] = " world";
 	printf("%s + %s = ", dest, src);
 	size_t res = ft_strlcat(dest, src, 5);
+	//size_t reso = strlcat(desto, src, 2);
 	printf("%s (length: %zu)\n", dest, res);
+	//printf("%s (length: %zu) | original\n", desto, res);
 	return (0);
 }
-*/
+

@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/07 12:06:26 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/07 12:08:54 by bszabo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    char    *c_dest;
-    char    *c_src;
+	char	*c_dest;
+	char	*c_src;
 
-    c_dest = (char *)dest;
-    c_src = (char *)src;
-    while (n > 0)
-    {
-        c_dest[n - 1] = c_src[n - 1];
-        n--;
-    }
-    return (dest);
+	c_dest = (char *)dest;
+	c_src = (char *)src;
+	while (n > 0)
+	{
+		c_dest[n - 1] = c_src[n - 1];
+		n--;
+	}
+	return (dest);
 }
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -25,3 +37,4 @@ int main(void)
         printf("src: %f | dest: %f\n", src_arr[i], dest_arr[i]);
     return(0);
 }
+*/

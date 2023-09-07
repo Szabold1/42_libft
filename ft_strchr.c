@@ -1,14 +1,26 @@
-char    *ft_strchr(const char *str, int c)
-{
-    while (*str)
-    {
-        if (c == *str)
-            return ((char *)str);
-        str++;
-    }
-    return (0);
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/07 12:16:28 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/07 12:17:43 by bszabo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str)
+	{
+		if (c == *str)
+			return ((char *)str);
+		str++;
+	}
+	return (0);
+}
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -20,3 +32,4 @@ int main(void)
     printf("first x: %s\n", res2);
     return (0);
 }
+*/
