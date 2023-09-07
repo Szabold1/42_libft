@@ -6,47 +6,54 @@
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:19:12 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/05 12:28:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2023/09/07 14:05:28 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	str_length(char *str)
-{
-	unsigned int	i;
+#include <stddef.h>
 
+size_t	length_of(char *str)
+{
+	size_t	i;
+	
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 		i++;
 	return (i);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-
-	i = str_length(dest);
-	j = 0;
-	if (size <= i)
-		return (size + str_length(src));
-	while (((i + j) < (size - 1)) && (src[j]))
+	int		i;
+	size_t	dest_len;
+	size_t	src_len;
+	
+	i = 0;
+	dest_len = length_of(dest);
+	src_len = length_of((char *)src);
+	if (size <= dest_len)
+		return (size + src_len);
+	while ((dest_len + i) < (size - 1) && src[i])
 	{
-		dest[i + j] = src[j];
-		j++;
+		dest[dest_len + i] = src[i];
+		i++;
 	}
-	dest[i + j] = '\0';
-	return (i + str_length(src));
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }
-/*
+
 #include <stdio.h>
+//#include <bsd/string.h>
 int	main(void)
 {
-	char dest[] = "I am doing";
-	char src[] = " some testing";
-	printf("Before: %s | %s\n", dest, src);
-	unsigned int result = ft_strlcat(dest, src, 15);
-	printf("After: %s (length: %d)\n", dest, result);
-	
+	char dest[] = "hello";
+	//char desto[] = "hello";
+	char src[] = " world";
+	printf("%s + %s = ", dest, src);
+	size_t res = ft_strlcat(dest, src, 5);
+	//size_t reso = strlcat(desto, src, 2);
+	printf("%s (length: %zu)\n", dest, res);
+	//printf("%s (length: %zu) | original\n", desto, res);
 	return (0);
 }
-*/
+
