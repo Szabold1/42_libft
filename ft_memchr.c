@@ -1,15 +1,15 @@
 #include <stddef.h>
 
-void    *ft_memchr(const void *str, int c, size_t n)
+void    *ft_memchr(const void *ptr, int c, size_t n)
 {
-    unsigned char    *c_str;
+    unsigned char    *c_ptr;
     
-    c_str = (unsigned char *)str;
+    c_ptr = (unsigned char *)ptr;
     while (n > 0)
     {
-        if (*c_str == (unsigned char)c)
-            return (c_str);
-        c_str++;
+        if (*c_ptr == (unsigned char)c)
+            return ((void *)c_ptr);
+        c_ptr++;
         n--;
     }
     return (0);
