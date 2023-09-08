@@ -12,9 +12,9 @@
 
 #include <stddef.h>
 
-size_t	length_of(char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -29,8 +29,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_len;
 
 	i = 0;
-	dest_len = length_of(dest);
-	src_len = length_of((char *)src);
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen((char *)src);
 	if (size <= dest_len)
 		return (size + src_len);
 	while ((dest_len + i) < (size - 1) && src[i])
@@ -42,14 +42,21 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (dest_len + src_len);
 }
 /*
+#include <string.h>
 #include <stdio.h>
 int	main(void)
 {
-	char dest[] = "hello";
-	char src[] = " world";
+	char dest[20] = "hello";
+	char src[20] = " world";
 	printf("%s + %s = ", dest, src);
-	size_t res = ft_strlcat(dest, src, 5);
+	size_t res = ft_strlcat(dest, src, 10);
 	printf("%s (length: %zu)\n", dest, res);
+
+	char dest2[20] = "hello";
+	char src2[20] = " world";
+	printf("%s + %s = ", dest2, src2);
+	size_t res2 = strlcat(dest2, src2, 10);
+	printf("%s (length: %zu) | original\n", dest2, res2);
 	return (0);
 }
 */
