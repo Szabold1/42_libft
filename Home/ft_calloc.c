@@ -20,6 +20,8 @@ void	*ft_calloc(size_t num, size_t size)
 
 	len = num * size;
 	ptr_mem = (char *)malloc(len);
+	if (ptr_mem == NULL)
+		return (NULL);
 	while (len > 0)
 	{
 		ptr_mem[len - 1] = '\0';
