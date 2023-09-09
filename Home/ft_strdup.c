@@ -32,6 +32,8 @@ char	*ft_strdup(const char *str)
 	i = 0;
 	size = ft_strlen(str);
 	cpy = (char *)malloc(sizeof(char) * size + 1);
+	if (cpy == NULL)
+		return (NULL);
 	while (str[i])
 	{
 		cpy[i] = str[i];
