@@ -1,54 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 13:43:01 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/08 14:10:02 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/08 15:33:50 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/08 15:51:56 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
 
-static size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	int		i;
-	char	*dup;
+	char	*temp;
 
 	i = 0;
-	dup = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (dup == NULL)
+	temp = (char *)malloc(sizeof(char) * len + 1);
+	if (temp == NULL)
 		return (NULL);
-	while (s[i])
+	while (i < (int)len && str[i])
 	{
-		dup[i] = s[i];
+		temp[i] = str[i + start];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	temp[i] = '\0';
+	return (temp);
 }
 /*
 #include <stdio.h>
 int main(void)
 {
-	char *s = "hello world";
-	char *dup = ft_strdup(s);
-	printf("s: %s | memory: %p\n", s, (void *)s);
-	printf("dup: %s | memory: %p\n", dup, (void *)dup);
-	free(dup);
+	char *str = "hello world";
+	char *substr = ft_substr(str, 6, 3);
+	printf("str: %s\nsubstr: %s\n", str, substr);
+	free(substr);
 	return (0);
 }
 */

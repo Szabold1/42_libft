@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 13:43:01 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/08 14:10:02 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/10 10:44:03 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/10 10:51:50 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,43 @@ static size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*s_final;
+	int		s_len;
 	int		i;
-	char	*dup;
+	int		j;
 
 	i = 0;
-	dup = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (dup == NULL)
+	j = 0;
+	s_len = (int)(ft_strlen(s1) + ft_strlen(s2));
+	s_final = (char *)malloc(s_len + 1);
+	if (s_final == NULL)
 		return (NULL);
-	while (s[i])
+	while (s1[i])
 	{
-		dup[i] = s[i];
+		s_final[i] = s1[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	while (s2[j])
+	{
+		s_final[i] = s2[j];
+		i++;
+		j++;
+	}
+	s_final[i] = '\0';
+	return (s_final);
 }
 /*
 #include <stdio.h>
 int main(void)
 {
-	char *s = "hello world";
-	char *dup = ft_strdup(s);
-	printf("s: %s | memory: %p\n", s, (void *)s);
-	printf("dup: %s | memory: %p\n", dup, (void *)dup);
-	free(dup);
+	char *s1 = "hello";
+	char *s2 = "World";
+	char *res = ft_strjoin(s1, s2);
+	printf("%s + %s = %s\n", s1, s2, res);
+	printf("    s1 memory: %p\nresult memory: %p\n", (void *)&s1, (void *)&s2);
+	free(res);
 	return (0);
 }
 */

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 13:43:01 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/08 14:10:02 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/12 09:59:37 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/12 10:01:28 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 static size_t	ft_strlen(const char *str)
 {
@@ -23,32 +23,39 @@ static size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	char	*dup;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
-	dup = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (dup == NULL)
+	str = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
+	if (str == NULL)
 		return (NULL);
 	while (s[i])
 	{
-		dup[i] = s[i];
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	str[i] = '\0';
+	return (str);
 }
 /*
 #include <stdio.h>
+char	odd_tounderscore(unsigned int i, char c)
+{
+	if (i % 2 == 0)
+		return ('_');
+	return (c);
+}
+
 int main(void)
 {
-	char *s = "hello world";
-	char *dup = ft_strdup(s);
-	printf("s: %s | memory: %p\n", s, (void *)s);
-	printf("dup: %s | memory: %p\n", dup, (void *)dup);
-	free(dup);
+	char *s = "guess what 12345";
+	char *res = ft_strmapi(s, odd_tounderscore);
+	printf("%s\n", s);
+	printf("%s\n", res);
+	free(res);
 	return (0);
 }
 */
