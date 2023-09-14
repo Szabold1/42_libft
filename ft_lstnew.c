@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 13:43:01 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/08 14:10:02 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/13 15:16:22 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/13 16:30:45 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
-	char	*dup;
+	t_list	*new_node;
 
-	i = 0;
-	dup = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (dup == NULL)
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node == NULL)
 		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 /*
 #include <stdio.h>
-int main(void)
+int	main(void)
 {
-	char *s = "hello world";
-	char *dup = ft_strdup(s);
-	printf("s: %s | memory: %p\n", s, (void *)s);
-	printf("dup: %s | memory: %p\n", dup, (void *)dup);
-	free(dup);
+	int num = 42;
+	char *str = "hello world";
+	t_list *new_node = ft_lstnew(str);
+	t_list *new_node2 = ft_lstnew(&num);
+	printf("new node content: %s\n", (char *)new_node->content);
+	printf("new node2 content: %d\n", *(int *)new_node2->content);
+	free(new_node);
+	free(new_node2);
 	return (0);
 }
 */

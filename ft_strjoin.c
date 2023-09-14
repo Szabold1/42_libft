@@ -12,16 +12,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

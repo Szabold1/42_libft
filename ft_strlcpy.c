@@ -11,16 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
@@ -44,17 +35,17 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 int	main(void)
 {
 	char dest[20] = "abcd";
-	char dest2[20] = "abcd";
+	//char dest2[20] = "abcd";
 	char src[20] = "testing";
-	char src2[20] = "testing";
+	//char src2[20] = "testing";
 	printf("dest before copying: %s\n", dest);
-	printf("dest before copying: %s | original\n", dest2);
+	//printf("dest before copying: %s | original\n", dest2);
 	size_t result = ft_strlcpy(dest, src, 7);
-	size_t result2 = strlcpy(dest2, src2, 7);
+	//size_t result2 = strlcpy(dest2, src2, 7);
 	printf("dest after copying: %s\n", dest);
-	printf("dest after copying: %s | original\n", dest2);
+	//printf("dest after copying: %s | original\n", dest2);
 	printf("length of src(%s): %zu\n", src, result);
-	printf("length of src(%s): %zu | original\n", src2, result2);
+	//printf("length of src(%s): %zu | original\n", src2, result2);
 	return (0);
 }
 */

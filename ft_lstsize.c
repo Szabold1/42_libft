@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 13:43:01 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/08 14:10:02 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/14 14:05:19 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/14 15:23:02 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_lstsize(t_list *lst)
 {
-	int		i;
-	char	*dup;
+	int	count;
 
-	i = 0;
-	dup = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (dup == NULL)
-		return (NULL);
-	while (s[i])
+	count = 0;
+	while (lst != NULL)
 	{
-		dup[i] = s[i];
-		i++;
+		count++;
+		lst = lst->next;
 	}
-	dup[i] = '\0';
-	return (dup);
+	return (count);
 }
 /*
 #include <stdio.h>
-int main(void)
+#include <stdlib.h>
+int	main(void)
 {
-	char *s = "hello world";
-	char *dup = ft_strdup(s);
-	printf("s: %s | memory: %p\n", s, (void *)s);
-	printf("dup: %s | memory: %p\n", dup, (void *)dup);
-	free(dup);
+	char *str1 = "hello";
+	char *str2 = "world";
+	t_list *node1 = ft_lstnew(str1);
+	t_list *node2 = ft_lstnew(str2);
+	t_list *root = node1;
+	node1->next = node2;
+	int size = ft_lstsize(root);
+	printf("size: %d\n", size);
+	free(node1);
+	free(node2);
 	return (0);
 }
 */

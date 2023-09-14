@@ -10,18 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 static char	*ft_strcpy(char *dest, char *src)
 {
@@ -60,6 +49,18 @@ static int	count_substr(char const *str, char c)
 	return (count);
 }
 
+static int	handle_substr_err(int str_index, char **strings)
+{
+	if (strings[str_index] == NULL)
+	{
+		while (str_index >= 0)
+			free(strings[str_index--]);
+		free(strings);
+		return (0);
+	}
+	return (1);
+}
+
 static int	handle_substr(char const *str, char c, char **strings)
 {
 	int		i;
@@ -78,7 +79,7 @@ static int	handle_substr(char const *str, char c, char **strings)
 		{
 			temp_arr[j] = '\0';
 			strings[str_index] = malloc(sizeof(char) * j + 1);
-			if (strings[str_index] == NULL)
+			if (handle_substr_err(str_index, strings) == 0)
 				return (0);
 			ft_strcpy(strings[str_index], temp_arr);
 			str_index++;
@@ -95,9 +96,15 @@ char	**ft_split(char const *str, char c)
 	char	**strings;
 
 	total = count_substr(str, c);
-	strings = (char **)malloc(total * sizeof(char *) + 1);
+	strings = (char **)malloc((total + 1) * sizeof(char *));
 	if (strings == NULL)
 		return (NULL);
+	if (total <= 1)
+	{
+		strings[0] = NULL;
+		return (strings);
+	}
+	strings[total] = NULL;
 	if (handle_substr(str, c, strings) == 0)
 		return (NULL);
 	return (strings);
@@ -107,11 +114,14 @@ char	**ft_split(char const *str, char c)
 int main(void)
 {
 	char *str = " <>   split    this by  space!  <>  ";
+	//char *str = "hi";
+	//char *str = "";
 	char **res_arr = ft_split(str, ' ');
 	printf("str: %s\n", str);
 	for (int i = 0; i < 7; i++)
 		printf("res_arr[%d] %s\n", i, res_arr[i]);
-	for (int i = 0; i < 7; i++)
+
+	for (int i = 0; res_arr[i]; i++)
 		free(res_arr[i]);
 	free(res_arr);
 	return (0);
