@@ -14,11 +14,19 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	while ((*lst)->next)
-		*lst = (*lst)->next;
-	(*lst)->next = new;
-}
+	t_list	*curr;
 
+	curr = *lst;
+	if (curr == NULL)
+	{
+		curr = new;
+		return ;
+	}
+	while (curr->next)
+		curr = curr->next;
+	curr->next = new;
+}
+/*
 #include <stdio.h>
 #include <stdlib.h>
 int main(void)
@@ -32,7 +40,6 @@ int main(void)
 	t_list *root = node1;
 	node1->next = node2;
 	t_list *ptr = root;
-	t_list *ptr_link = root->next;
 
 	while (ptr)
 	{
@@ -40,8 +47,8 @@ int main(void)
 		ptr = ptr->next;
 	}
 	printf("\n");
-	ft_lstadd_back(&ptr_link, new_node);
 	ptr = root;
+	ft_lstadd_back(&root, new_node);
 	while (ptr)
     {
         printf("%s | ", (char *)ptr->content);
@@ -53,3 +60,4 @@ int main(void)
 	free(new_node);
 	return (0);
 }
+*/
