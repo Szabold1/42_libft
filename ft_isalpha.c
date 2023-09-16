@@ -22,8 +22,11 @@ int	ft_isalpha(int c)
 int	main(void)
 {
 	int c = 'j';
+	int c2 = '5';
 	int res = ft_isalpha(c);
-	printf("%d | %d", c, res);
+	int res2 = ft_isalpha(c2);
+	printf("%c | %d\n", c, res);
+	printf("%c | %d\n", c2, res2);
 	return (0);
 }
 */

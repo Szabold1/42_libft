@@ -21,9 +21,12 @@ int	ft_isdigit(int c)
 #include <stdio.h>
 int	main(void)
 {
-	int c = '7';
+	int c = '9';
+	int c2 = 'e';
 	int res = ft_isdigit(c);
-	printf("%d | %d", c, res);
+	int res2 = ft_isdigit(c2);
+	printf("%c | %d\n", c, res);
+	printf("%c | %d\n", c2, res2);
 	return (0);
 }
 */

@@ -31,7 +31,7 @@ int	main(void)
 {
 	char str[10] = "test";
 	printf("before: %s\n", str);
-	ft_memset(str, '.', sizeof(str));
+	ft_memset(str + 2, '.', 3);
 	printf("after: %s\n", str);
 	return (0);
 }
