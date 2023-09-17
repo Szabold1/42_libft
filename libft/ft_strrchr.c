@@ -12,15 +12,19 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*temp;
+	char			*temp;
+	unsigned char	c_c;
 
 	temp = 0;
+	c_c = (unsigned char)c;
 	while (*str)
 	{
-		if (c == *str)
+		if (c_c == *str)
 			temp = (char *)str;
 		str++;
 	}
+	if (c_c == '\0')
+		return ((char *)str);
 	return (temp);
 }
 /*
