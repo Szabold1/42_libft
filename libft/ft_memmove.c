@@ -17,11 +17,25 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char		*c_dest;
 	const char	*c_src;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	c_dest = (char *)dest;
 	c_src = (const char *)src;
-	while (n > 1)
+	if (c_src == c_dest)
+		return (dest);
+	if (c_src < c_dest)
 	{
-		c_dest[n - 1] = c_src[n - 1];
+		while (n > 0)
+		{
+			c_dest[n - 1] = c_src[n - 1];
+			n--;
+		}
+	}
+	while (n > 0)
+	{
+		*c_dest = *c_src;
+		c_dest++;
+		c_src++;
 		n--;
 	}
 	return (dest);
@@ -31,15 +45,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 #include <string.h>
 int main(void)
 {
-    double src_arr[5] = {1.8, 4.73, 2.8, 4.4, 9.9};
-    double src_arr2[5] = {1.8, 4.73, 2.8, 4.4, 9.9};
-    ft_memmove(src_arr + 2, src_arr, sizeof(double) * 3);
-    memmove(src_arr2 + 2, src_arr2, sizeof(double) * 3);
-    for (int i = 0; i < 5; i++)
-    {
-        printf("src: %f\n", src_arr[i]);
-        printf("src: %f | original\n", src_arr[i]);
-    }
+    // char src1[] = "Hello World!";
+    // char dest1[20];
+    // ft_memmove(dest1, src1 + 6, 10);
+    // printf("src1 = %s\n", src1);
+    // printf("dest1 = %s\n", dest1);
+
+	char src2[] = "123456";
+	ft_memmove(src2, src2 + 2, 4);
+	printf("src2 = %s\n", src2);
     return (0);
 }
 */
