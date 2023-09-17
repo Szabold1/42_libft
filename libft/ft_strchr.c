@@ -12,24 +12,34 @@
 
 char	*ft_strchr(const char *str, int c)
 {
+	unsigned char	c_c;
+
+	c_c = (unsigned char)c;
 	while (*str)
 	{
-		if (c == *str)
+		if (c_c == *str)
 			return ((char *)str);
 		str++;
 	}
+	if (c_c == '\0')
+		return ((char *)str);
 	return (0);
 }
 /*
+#include <string.h>
 #include <stdio.h>
 int main(void)
 {
     char str[] = "hello world";
     char *res1 = ft_strchr(str, 'l');
     char *res2 = ft_strchr(str, 'x');
+    char *res3 = ft_strchr(str, '\0');
+	char *res4 = ft_strchr(str, 'h' - 256);
     printf("str: %s\n", str);
     printf("first l: %s\n", res1);
     printf("first x: %s\n", res2);
+    printf("\\0: %s\n", res3);
+	printf("h - 256: %s\n", res4);
     return (0);
 }
 */
