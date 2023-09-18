@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 static char	*ft_strcpy(char *dest, char *src)
 {
@@ -30,26 +31,24 @@ static int	count_substr(char const *str, char c)
 {
 	int	i;
 	int	count;
-	int	in_substr;
 
 	i = 0;
 	count = 0;
-	in_substr = 0;
 	while (str[i])
 	{
-		if (str[i] != c && in_substr == 0)
+		if (str[i] != c)
 		{
 			count++;
-			in_substr = 1;
+			while (str[i] != c && str[i])
+				i++;
 		}
 		else if (str[i] == c)
-			in_substr = 0;
-		i++;
+			i++;
 	}
 	return (count);
 }
 
-static int	handle_substr_err(int str_index, char **strings)
+static int	handle_err(int str_index, char **strings)
 {
 	if (strings[str_index] == NULL)
 	{
@@ -66,7 +65,7 @@ static int	handle_substr(char const *str, char c, char **strings)
 	int		i;
 	int		j;
 	int		str_index;
-	char	temp_arr[10000];
+	char	sub_str[10000];
 
 	i = 0;
 	str_index = 0;
@@ -74,14 +73,14 @@ static int	handle_substr(char const *str, char c, char **strings)
 	{
 		j = 0;
 		while (str[i] != c && str[i])
-			temp_arr[j++] = str[i++];
+			sub_str[j++] = str[i++];
 		if (j > 0)
 		{
-			temp_arr[j] = '\0';
-			strings[str_index] = malloc(sizeof(char) * j + 1);
-			if (handle_substr_err(str_index, strings) == 0)
+			sub_str[j] = '\0';
+			strings[str_index] = malloc(sizeof(char) * (j + 1));
+			if (handle_err(str_index, strings) == 0)
 				return (0);
-			ft_strcpy(strings[str_index], temp_arr);
+			ft_strcpy(strings[str_index], sub_str);
 			str_index++;
 		}
 		if (str[i] == c && str[i])
@@ -92,33 +91,34 @@ static int	handle_substr(char const *str, char c, char **strings)
 
 char	**ft_split(char const *str, char c)
 {
-	int		total;
 	char	**strings;
+	int		substrings;
 
-	total = count_substr(str, c);
-	strings = (char **)malloc((total + 1) * sizeof(char *));
-	if (strings == NULL)
+	if (str == NULL)
 		return (NULL);
-	if (total <= 1)
+	substrings = count_substr(str, c);
+	strings = (char **)malloc(sizeof(char *) * (substrings + 1));
+	if (strings == NULL || handle_substr(str, c, strings) == 0)
+		return (NULL);
+	if (substrings == 0)
 	{
 		strings[0] = NULL;
 		return (strings);
 	}
-	strings[total] = NULL;
-	if (handle_substr(str, c, strings) == 0)
-		return (NULL);
+	strings[substrings] = NULL;
 	return (strings);
 }
 /*
 #include <stdio.h>
 int main(void)
 {
-	char *str = " <>   split    this by  space!  <>  ";
-	//char *str = "hi";
+	//char *str = " <>   split    this by  space!  <>  ";
+	char *str = "hi";
 	//char *str = "";
-	char **res_arr = ft_split(str, ' ');
+	char **res_arr = ft_split(NULL, ' ');
+
 	printf("str: %s\n", str);
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; res_arr[i - 1]; i++)
 		printf("res_arr[%d] %s\n", i, res_arr[i]);
 
 	for (int i = 0; res_arr[i]; i++)
