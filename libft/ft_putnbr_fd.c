@@ -10,28 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	char	c_num;
 
-	str = ft_itoa(n);
-	while (*str)
+	if (n == -2147483648)
 	{
-		write(fd, str, 1);
-		str++;
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+	{
+		c_num = n + 48;
+		write(fd, &c_num, 1);
 	}
 }
 /*
-#include <stdio.h>
 int main(void)
 {
-    int n = -2147483648;
-    // int n = 0;
-    // int n = 2147483647;
+    //int n = -2147483648;
+	int n = -47628;
+    //int n = 0;
+    //int n = 2147483647;
     ft_putnbr_fd(n, 1);
     return (0);
 }
