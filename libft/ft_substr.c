@@ -14,44 +14,29 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	handle_edge(char const *str, unsigned int start, size_t len)
-{
-	size_t	str_len;
-
-	str_len = ft_strlen(str);
-	if (str == NULL)
-		return (1);
-	if (start >= str_len)
-		return (1);
-	if (len > str_len - start)
-		len = str_len - start;
-	return (0);
-}
-
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	int				i;
-	char			*temp;
+	int		i;
+	char	*substr;
 
+	if (*str == '\0')
+		len = 0;
+	if (start > ft_strlen(str))
+		len = 0;
+	if (len > ft_strlen(str) - start)
+		len = ft_strlen(str) - start;
 	i = 0;
-	if (handle_edge(str, start, len))
-	{
-		temp = (char *)malloc(sizeof(char));
-		if (temp == NULL)
-			return (NULL);
-		temp[0] = '\0';
-		return (temp);
-	}
-	temp = (char *)malloc(sizeof(char) * (len + 1));
-	if (temp == NULL)
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (substr == NULL)
 		return (NULL);
-	while (i < (int)len && str[i])
+	while (*str && len--)
 	{
-		temp[i] = str[i + start];
+		substr[i] = *(str + start);
 		i++;
+		str++;
 	}
-	temp[i] = '\0';
-	return (temp);
+	substr[i] = '\0';
+	return (substr);
 }
 /*
 #include <stdio.h>
