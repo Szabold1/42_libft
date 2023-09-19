@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst == NULL)
+		return (NULL);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
@@ -27,7 +29,7 @@ int main(void)
 	char *str2 = "world";
 	t_list *node1 = ft_lstnew(str1);
 	t_list *node2 = ft_lstnew(str2);
-	t_list *root = node1;
+	t_list *root = NULL;
 	node1->next = node2;
 	t_list *last_node = ft_lstlast(root);
 	printf("last node's content: %s\n", (char *)last_node->content);
