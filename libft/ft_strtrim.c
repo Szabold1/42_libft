@@ -34,6 +34,12 @@ static void	calc_trim(int *start, int *cpylen, char const *str, char const *set)
 	i = 0;
 	while (is_in_set(str[i], set))
 		i++;
+	if (i == strlen)
+	{
+		*start = 0;
+		*cpylen = 0;
+		return ;
+	}
 	*start = i;
 	i = 0;
 	while (is_in_set(str[strlen - i - 1], set))
@@ -52,7 +58,7 @@ char	*ft_strtrim(char const *str, char const *set)
 	cpylen = 0;
 	i = 0;
 	calc_trim(&start, &cpylen, str, set);
-	cpy = (char *)malloc(cpylen * sizeof(char) + 1);
+	cpy = (char *)malloc((cpylen + 1) * sizeof(char));
 	if (cpy == NULL)
 		return (NULL);
 	while (i < cpylen)
@@ -68,8 +74,10 @@ char	*ft_strtrim(char const *str, char const *set)
 #include <stdio.h>
 int main(void)
 {
-	char *str = "-  ++ ---hello world!- -+-+- -";
-	char *set = "- +";
+	// char *str = "-  ++ ---hello world!- -+-+- -";
+	char *str = "   xxx   xxx";
+	// char *set = "- +";
+	char *set = " x";
 	char *res = ft_strtrim(str, set);
 	printf("str: %s\ntrim: %s\nresult: %s\n", str, set, res);
 	free(res);
