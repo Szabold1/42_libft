@@ -45,11 +45,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 #include <string.h>
 int main(void)
 {
-    // char src1[] = "Hello World!";
-    // char dest1[20];
-    // ft_memmove(dest1, src1 + 6, 10);
-    // printf("src1 = %s\n", src1);
-    // printf("dest1 = %s\n", dest1);
+    char src1[] = "Hello World!";
+    char dest1[20];
+    ft_memmove(dest1, src1 + 6, 10);
+    printf("src1 = %s\n", src1);
+    printf("dest1 = %s\n", dest1);
 
 	char src2[] = "123456";
 	ft_memmove(src2, src2 + 2, 4);
