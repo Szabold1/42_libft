@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// check if c is a 7-bit US-ASCII character code
+// return 1 if true, 0 if false
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

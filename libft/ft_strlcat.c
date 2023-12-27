@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
+// concatenate string 'src' to string 'dest' up to 'size' characters
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	int		i;
@@ -40,14 +40,14 @@ int	main(void)
 	char dest[20] = "hello";
 	char src[20] = " world";
 	printf("%s + %s = ", dest, src);
-	size_t res = ft_strlcat(dest, src, 10);
+	size_t res = ft_strlcat(dest, src, 3);
 	printf("%s (length: %zu)\n", dest, res);
 
-	//char dest2[20] = "hello";
-	//char src2[20] = " world";
-	//printf("%s + %s = ", dest2, src2);
-	//size_t res2 = strlcat(dest2, src2, 10);
-	//printf("%s (length: %zu) | original\n", dest2, res2);
+	char dest2[20] = "hello";
+	char src2[20] = " world";
+	printf("%s + %s = ", dest2, src2);
+	size_t res2 = strlcat(dest2, src2, 3);
+	printf("%s (length: %zu) | original\n", dest2, res2);
 	return (0);
 }
 */

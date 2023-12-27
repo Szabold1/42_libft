@@ -13,6 +13,9 @@
 #include <stdlib.h>
 #include "libft.h"
 
+// free the memory of the node’s content using the function ’del’
+// and free the node itself
+// the memory of ’next’ must not be freed
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst)

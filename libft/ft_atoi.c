@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// convert the initial portion of the string to an integer
 int	ft_atoi(const char *str)
 {
 	int	num;
@@ -19,18 +20,18 @@ int	ft_atoi(const char *str)
 	num = 0;
 	i = 0;
 	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if ((str[i] == '-' || str[i] == '+')
-		&& (str[i + 1] >= 48 && str[i + 1] <= 57))
+		&& (str[i + 1] >= '0' && str[i + 1] <= '9'))
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = num * 10 + (str[i] - 48);
+		num = num * 10 + (str[i] - '0');
 		i++;
 	}
 	return (num * sign);

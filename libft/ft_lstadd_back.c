@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+// add the node ’new’ at the end of the list
+// if the list is empty, the new node is the beginning of the list
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;

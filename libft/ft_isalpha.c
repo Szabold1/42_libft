@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// check if the character is a letter
+// return 1 if true, 0 if false
 int	ft_isalpha(int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }

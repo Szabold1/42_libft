@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
+// join strings 's1' and 's2' into a new string with malloc
+// return pointer to new string
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s_final;

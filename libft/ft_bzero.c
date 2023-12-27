@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// erase the data in the n bytes of the memory by writing zeroes
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;

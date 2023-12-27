@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
+// output the string 's' to the file descriptor 'fd'
 void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)

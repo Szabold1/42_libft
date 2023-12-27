@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// compare 'n' bytes of 'ptr1' and 'ptr2'
+// if identical return 0, else difference between first two differing bytes
 int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
 	unsigned char	*c_ptr1;

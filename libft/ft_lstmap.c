@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+// iterate the list ’lst’ and apply the function ’f’ to the content of each node
+// return a new list containing the new content values
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;

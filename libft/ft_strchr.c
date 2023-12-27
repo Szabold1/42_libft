@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// check if string 'str' contains char 'c'
+// return pointer to first occurrence of 'c' in 'str', or NULL if not found
 char	*ft_strchr(const char *str, int c)
 {
 	unsigned char	c_c;

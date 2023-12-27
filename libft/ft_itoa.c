@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
+// count the number of digits in the integer
 static int	count_digits(int n)
 {
 	int	count;
@@ -25,6 +26,7 @@ static int	count_digits(int n)
 	return (count);
 }
 
+// fill the string with the digits of the integer
 static void	fill_str(char *str, int n, int digits_len)
 {
 	int	i;
@@ -33,16 +35,18 @@ static void	fill_str(char *str, int n, int digits_len)
 	str[digits_len] = '\0';
 	while (n > 0)
 	{
-		str[digits_len - i] = (n % 10) + 48;
+		str[digits_len - i] = (n % 10) + '0';
 		n /= 10;
 		i++;
 	}
 }
 
+// handle the edge cases (min int and 0)
 static char	*handle_edge(int n)
 {
 	char	*str;
 
+	str = NULL;
 	if (n == -2147483648)
 	{
 		str = (char *)malloc(sizeof(char) * 12);
@@ -53,7 +57,7 @@ static char	*handle_edge(int n)
 		n = 147483648;
 		fill_str(str, n, 11);
 	}
-	else
+	else if (n == 0)
 	{
 		str = (char *)malloc(sizeof(char) * 2);
 		if (str == NULL)
@@ -64,6 +68,7 @@ static char	*handle_edge(int n)
 	return (str);
 }
 
+// convert the integer to a string and return the result
 char	*ft_itoa(int n)
 {
 	int		sign;
@@ -81,7 +86,7 @@ char	*ft_itoa(int n)
 		digits_len++;
 	}
 	digits_len += count_digits(n);
-	str = (char *)malloc(sizeof(char) * digits_len + 1);
+	str = (char *)malloc(sizeof(char) * (digits_len + 1));
 	if (str == NULL)
 		return (NULL);
 	fill_str(str, n, digits_len);

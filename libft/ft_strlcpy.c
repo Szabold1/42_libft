@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
+// copy up to size - 1 characters from the NUL-terminated string 'src'
+// to 'dest', NUL-terminating the result
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
@@ -35,17 +36,19 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 int	main(void)
 {
 	char dest[20] = "abcd";
-	//char dest2[20] = "abcd";
+	char res_dest[20] = "abcd";
+
 	char src[20] = "testing";
-	//char src2[20] = "testing";
+	char res_src[20] = "testing";
+
 	printf("dest before copying: %s\n", dest);
-	//printf("dest before copying: %s | original\n", dest2);
+
 	size_t result = ft_strlcpy(dest, src, 7);
-	//size_t result2 = strlcpy(dest2, src2, 7);
-	printf("dest after copying: %s\n", dest);
-	//printf("dest after copying: %s | original\n", dest2);
-	printf("length of src(%s): %zu\n", src, result);
-	//printf("length of src(%s): %zu | original\n", src2, result2);
+	size_t res_result = strlcpy(res_dest, res_src, 7);
+
+	printf("dest after copying: %s (expected: %s)\n", dest, res_dest);
+	printf("length of src (%s): %zu (expected: %zu)\n", src, result, res_result);
+
 	return (0);
 }
 */

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// check if the character is printable
+// return 1 if true, 0 if false
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

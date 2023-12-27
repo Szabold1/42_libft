@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// find the last occurrence of the character 'c' in the string 'str'
+// return a pointer to the located character or NULL if not found
 char	*ft_strrchr(const char *str, int c)
 {
 	char			*temp;

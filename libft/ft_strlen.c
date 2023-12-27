@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// return the length of string 'str'
 size_t	ft_strlen(const char *str)
 {
 	int	i;

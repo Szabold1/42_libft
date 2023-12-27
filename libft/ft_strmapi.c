@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
+// apply the function 'f' to each character of the string 's'
+// to create a new string and return it
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;

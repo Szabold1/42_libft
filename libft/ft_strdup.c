@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
+// duplicate string 's' in memory using malloc
+// return pointer to new string
 char	*ft_strdup(const char *s)
 {
 	int		i;

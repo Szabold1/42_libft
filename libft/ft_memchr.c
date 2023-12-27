@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// scan 'n' bytes from beginning of 'ptr' for first occurrence of 'c'
+// return pointer to the matching byte or NULL if no match
 void	*ft_memchr(const void *ptr, int c, size_t n)
 {
 	unsigned char	*c_ptr;

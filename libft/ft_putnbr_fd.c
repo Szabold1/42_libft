@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
+// output integer 'n' to file descriptor 'fd'
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c_num;
@@ -33,7 +34,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		c_num = n + 48;
+		c_num = n + '0';
 		write(fd, &c_num, 1);
 	}
 }

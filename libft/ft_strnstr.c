@@ -10,8 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// locate the first occurrence of the string 'str_sm' in 'str_lg'
+// where not more than 'n' characters are searched
+// return a pointer to the located string or NULL if not found
 char	*ft_strnstr(const char *str_lg, const char *str_sm, size_t n)
 {
 	size_t	i;

@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
+// output string 's' to file descriptor 'fd' followed by a newline
 void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s)

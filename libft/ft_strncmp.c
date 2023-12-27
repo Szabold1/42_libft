@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// compare the first 'n' characters of 'str1' and 'str2'
+// return 0 if they are identical
+// if 'str1' < 'str2' return negative number
+// if 'str1' > 'str2' return positive number
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
 	unsigned char	*s1;

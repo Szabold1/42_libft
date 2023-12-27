@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
+// copy string 'src' to string 'dest'
 static char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
@@ -27,6 +27,7 @@ static char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
+// count number of substrings in string 'str' separated by char 'c'
 static int	count_substr(char const *str, char c)
 {
 	int	i;
@@ -48,6 +49,7 @@ static int	count_substr(char const *str, char c)
 	return (count);
 }
 
+// free 'strings' array if malloc fails
 static int	handle_err(int str_index, char **strings)
 {
 	if (strings[str_index] == NULL)
@@ -60,6 +62,7 @@ static int	handle_err(int str_index, char **strings)
 	return (1);
 }
 
+// fill 'strings' array with substrings
 static int	handle_substr(char const *str, char c, char **strings)
 {
 	int		i;
@@ -89,6 +92,7 @@ static int	handle_substr(char const *str, char c, char **strings)
 	return (1);
 }
 
+// split string 'str' into substrings using char 'c' as delimiter
 char	**ft_split(char const *str, char c)
 {
 	char	**strings;

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
+// create a new node with the content ’content’
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_node;

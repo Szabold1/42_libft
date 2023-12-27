@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// fill 'n' bytes of memory area 'str' with byte 'c'
 void	*ft_memset(void *str, int c, size_t n)
 {
 	unsigned char	*ptr;
@@ -27,12 +28,16 @@ void	*ft_memset(void *str, int c, size_t n)
 }
 /*
 #include <stdio.h>
+#include <string.h>
 int	main(void)
 {
 	char str[10] = "test";
+	char res[10] = "test";
+
 	printf("before: %s\n", str);
-	ft_memset(str + 2, '.', 3);
-	printf("after: %s\n", str);
+	ft_memset(str + 2, '.', 5);
+	memset(res + 2, '.', 5);
+	printf("after: %s (expected: %s)\n", str, res);
 	return (0);
 }
 */

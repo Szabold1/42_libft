@@ -10,8 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
+// copy 'n' bytes from 'src' to 'dest'
+// the memory areas may overlap
+// return original value of dest
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*c_dest;
@@ -23,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	c_src = (const char *)src;
 	if (c_src == c_dest)
 		return (dest);
-	if (c_src < c_dest)
+	if (c_src < c_dest && c_src + n > c_dest)
 	{
 		while (n > 0)
 		{
@@ -45,15 +48,24 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 #include <string.h>
 int main(void)
 {
+	// test case 1
     char src1[] = "Hello World!";
     char dest1[20];
-    ft_memmove(dest1, src1 + 6, 10);
-    printf("src1 = %s\n", src1);
-    printf("dest1 = %s\n", dest1);
+	char res1[20];
 
+    ft_memmove(dest1, src1 + 6, 10);
+	memmove(res1, src1 + 6, 10);
+    printf("src1 = %s\n", src1);
+    printf("dest1 = %s (expected: %s)\n", dest1, res1);
+
+	// test case 2
 	char src2[] = "123456";
+	char res_src2[] = "123456";
+
+	printf("\nbefore src2 = %s\n", src2);
 	ft_memmove(src2, src2 + 2, 4);
-	printf("src2 = %s\n", src2);
+	memmove(res_src2, res_src2 + 2, 4);
+	printf("after src2 = %s (expected: %s)\n", src2, res_src2);
     return (0);
 }
 */
