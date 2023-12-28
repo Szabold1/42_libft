@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:55:42 by bszabo            #+#    #+#             */
 /*   Updated: 2023/09/07 12:01:23 by bszabo           ###   ########.fr       */

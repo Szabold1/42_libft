@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 11:49:52 by bszabo            #+#    #+#             */
 /*   Updated: 2023/09/05 14:11:44 by bszabo           ###   ########.fr       */

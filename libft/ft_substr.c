@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 15:33:50 by bszabo            #+#    #+#             */
 /*   Updated: 2023/09/08 15:51:56 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
+// return substring from 'str' starting at index 'start' and of length 'len'
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	int		i;
@@ -25,15 +24,14 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		len = 0;
 	if (len > ft_strlen(str) - start)
 		len = ft_strlen(str) - start;
-	i = 0;
 	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (substr == NULL)
 		return (NULL);
-	while (*str && len--)
+	i = 0;
+	while (str[i] && len--)
 	{
-		substr[i] = *(str + start);
+		substr[i] = str[start + i];
 		i++;
-		str++;
 	}
 	substr[i] = '\0';
 	return (substr);

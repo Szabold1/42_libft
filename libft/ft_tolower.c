@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:53:05 by bszabo            #+#    #+#             */
 /*   Updated: 2023/09/05 12:57:10 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// return lowercase version of 'c', if 'c' is an uppercase letter
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
 	return (c);
 }

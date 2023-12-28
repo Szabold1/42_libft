@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bszabo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:48:30 by bszabo            #+#    #+#             */
 /*   Updated: 2023/09/12 12:01:53 by bszabo           ###   ########.fr       */
@@ -53,7 +53,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*ft_strnstr(const char *str_lg, const char *str_sm, size_t n);
 char	*ft_strrchr(const char *str, int c);
-char	*ft_strtrim(char const *str, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
