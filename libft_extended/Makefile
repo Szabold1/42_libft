@@ -1,6 +1,7 @@
 NAME = libft.a
 SRC_DIR = ./src
 SRC_PRINTF_DIR = $(SRC_DIR)/ft_printf
+SRC_GNL_DIR = $(SRC_DIR)/get_next_line
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
@@ -54,6 +55,9 @@ SRC_PRINTF = ft_printf_utils.c \
 			ft_printf_utils2.c \
 			ft_printf.c
 OBJ_PRINTF = $(SRC_PRINTF:%.c=$(SRC_PRINTF_DIR)/%.o)
+SRC_GNL = get_next_line_utils.c \
+			get_next_line.c
+OBJ_GNL = $(SRC_GNL:%.c=$(SRC_GNL_DIR)/%.o)
 
 all: $(NAME)
 
@@ -64,7 +68,7 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(OBJ_BONUS) $(OBJ_PRINTF)
+	$(RM) $(OBJ) $(OBJ_BONUS) $(OBJ_PRINTF) $(OBJ_GNL)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -74,36 +78,7 @@ re: fclean all
 bonus: all $(OBJ_BONUS)
 	$(AR) $(NAME) $(OBJ_BONUS)
 
-every: bonus $(OBJ_PRINTF)
-	$(AR) $(NAME) $(OBJ_PRINTF)
+every: bonus $(OBJ_PRINTF) $(OBJ_GNL)
+	$(AR) $(NAME) $(OBJ_BONUS) $(OBJ_PRINTF) $(OBJ_GNL)
 	
 .PHONY: all clean fclean re bonus
-
-# NAME = ft_printf.a
-# SRC_DIR = ./src/ft_printf
-# SRC = ft_printf.c \
-# 		ft_printf_utils.c \
-# 		ft_printf_utils2.c
-# OBJS = $(SRC:%.c=$(SRC_DIR)/%.o)
-# CC = cc
-# AR = ar rcs
-# RM = rm -rf
-# CFLAGS = -Wall -Wextra -Werror
-
-# all: $(NAME)
-
-# $(NAME): $(OBJS)
-# 	$(AR) $(NAME) $(OBJS)
-
-# $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
-# clean:
-# 	$(RM) $(OBJS)
-
-# fclean: clean
-# 	$(RM) $(NAME)
-
-# re: fclean all
-
-# .PHONY: all clean fclean re
