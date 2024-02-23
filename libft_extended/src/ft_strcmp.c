@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 15:31:29 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/15 15:39:18 by bszabo           ###   ########.fr       */
+/*   Created: 2024/02/08 12:06:24 by bszabo            #+#    #+#             */
+/*   Updated: 2024/02/08 12:06:34 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-// iterate the list ’lst’ and apply the function ’f’ to the content of each
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+// compare 's1' and 's2', return 0 if they are identical
+// if 's1' < 's2' return negative number, if 's1' > 's2' return positive number
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (lst && f)
+	int	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		while (lst)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
+		if (s1[i] - s2[i] != 0)
+			return (s1[i] - s2[i]);
+		i++;
 	}
+	return (0);
 }

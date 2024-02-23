@@ -12,26 +12,26 @@
 
 #include "libft.h"
 
-// print a character to stdout and return the number of characters written
-int	print_char(int c)
+// print a character to fd and return the number of characters written
+int	print_char_fd(int c, int fd)
 {
 	char	c_c;
 
 	c_c = (c);
-	return (write(1, &c_c, 1));
+	return (write(fd, &c_c, 1));
 }
 
 // print the string to stdout and return the number of characters written
-int	print_str(char *str)
+int	print_str_fd(char *str, int fd)
 {
 	int	len;
 
 	len = 0;
 	if (!str)
-		return (write(1, "(null)", 6));
+		return (write(fd, "(null)", 6));
 	while (*str)
 	{
-		write(1, str, 1);
+		write(fd, str, 1);
 		str++;
 		len++;
 	}
@@ -39,34 +39,34 @@ int	print_str(char *str)
 }
 
 // print integer to stdout and return the number of characters written
-int	print_int(int n)
+int	print_int_fd(int n, int fd)
 {
 	int		count;
 	char	c_num;
 
 	count = 0;
 	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
+		return (write(fd, "-2147483648", 11));
 	else if (n < 0)
 	{
-		count += write(1, "-", 1);
+		count += write(fd, "-", 1);
 		n *= -1;
 	}
 	if (n > 9)
 	{
-		count += print_int(n / 10);
-		count += print_int(n % 10);
+		count += print_int_fd(n / 10, fd);
+		count += print_int_fd(n % 10, fd);
 	}
 	else
 	{
 		c_num = n + '0';
-		count += write(1, &c_num, 1);
+		count += write(fd, &c_num, 1);
 	}
 	return (count);
 }
 
 // print unsigned integer to stdout and return the number of characters written
-int	print_uint(unsigned int n)
+int	print_uint_fd(unsigned int n, int fd)
 {
 	int		count;
 	char	c_num;
@@ -74,11 +74,11 @@ int	print_uint(unsigned int n)
 	count = 0;
 	c_num = n + '0';
 	if (n < 10)
-		count += write(1, &c_num, 1);
+		count += write(fd, &c_num, 1);
 	else
 	{
-		count += print_uint(n / 10);
-		count += print_uint(n % 10);
+		count += print_uint_fd(n / 10, fd);
+		count += print_uint_fd(n % 10, fd);
 	}
 	return (count);
 }

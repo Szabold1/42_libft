@@ -14,7 +14,7 @@
 
 // print lowercase or uppercase hexadecimal number to stdout
 // return the number of characters written
-int	print_hex(unsigned long long n, char c)
+int	print_hex_fd(unsigned long long n, char c, int fd)
 {
 	int		count;
 	char	*hex_sm;
@@ -26,28 +26,28 @@ int	print_hex(unsigned long long n, char c)
 	if (n < 16)
 	{
 		if (c == 'x')
-			write(1, &hex_sm[n], 1);
+			write(fd, &hex_sm[n], 1);
 		else if (c == 'X')
-			write(1, &hex_lg[n], 1);
+			write(fd, &hex_lg[n], 1);
 		count++;
 	}
 	else
 	{
-		count += print_hex(n / 16, c);
-		count += print_hex(n % 16, c);
+		count += print_hex_fd(n / 16, c, fd);
+		count += print_hex_fd(n % 16, c, fd);
 	}
 	return (count);
 }
 
 // print a pointer to stdout and return the number of characters written
-int	print_ptr(void *ptr)
+int	print_ptr_fd(void *ptr, int fd)
 {
 	int	count;
 
 	count = 0;
 	if (!ptr)
-		return (write(1, "(nil)", 5));
-	count += write(1, "0x", 2);
-	count += print_hex((unsigned long long)ptr, 'x');
+		return (write(fd, "(nil)", 5));
+	count += write(fd, "0x", 2);
+	count += print_hex_fd((unsigned long long)ptr, 'x', fd);
 	return (count);
 }

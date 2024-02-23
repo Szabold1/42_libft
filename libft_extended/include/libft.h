@@ -6,24 +6,31 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:48:30 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/12 12:01:53 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/02/23 23:28:05 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+// buffer for get_next_line
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
+// Linked list structure
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-// Mandatory functions
+// Mandatory libft functions
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t num, size_t size);
@@ -46,7 +53,7 @@ char	**ft_split(char const *str, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
@@ -59,7 +66,7 @@ char	*ft_substr(char const *str, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
-// Bonus functions
+// Bonus libft functions
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -69,5 +76,36 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// Other libft functions
+int		ft_strcmp(char *s1, char *s2);
+
+// get_next_line functions
+// File: get_next_line.c
+char	*get_next_line(int fd);
+
+// ft_printf functions
+// File: ft_printf_utils.c
+int		print_char(int c);
+int		print_str(char *str);
+int		print_int(int n);
+int		print_uint(unsigned int n);
+// File: ft_printf_utils2.c
+int		print_hex(unsigned long long n, char c);
+int		print_ptr(void *ptr);
+// File: ft_printf.c
+int		ft_printf(const char *str, ...);
+
+// ft_printf_fd functions
+// File: ft_printf_fd_utils.c
+int		print_char_fd(int c, int fd);
+int		print_str_fd(char *str, int fd);
+int		print_int_fd(int n, int fd);
+int		print_uint_fd(unsigned int n, int fd);
+// File: ft_printf_fd_utils2.c
+int		print_hex_fd(unsigned long long n, char c, int fd);
+int		print_ptr_fd(void *ptr, int fd);
+// File: ft_printf_fd.c
+int		ft_printf_fd(int fd, const char *str, ...);
 
 #endif

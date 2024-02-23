@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 13:37:30 by bszabo            #+#    #+#             */
-/*   Updated: 2023/09/14 15:34:38 by bszabo           ###   ########.fr       */
+/*   Created: 2023/09/14 16:23:29 by bszabo            #+#    #+#             */
+/*   Updated: 2023/09/14 16:35:06 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
-// add the node ’new’ at the beginning of the list
-void	ft_lstadd_front(t_list **lst, t_list *new)
+// return the last element of the list
+t_list	*ft_lstlast(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 /*
 #include <stdio.h>
@@ -25,21 +28,14 @@ int main(void)
 {
 	char *str1 = "hello";
 	char *str2 = "world";
-	char *str_new = "hi";
 	t_list *node1 = ft_lstnew(str1);
 	t_list *node2 = ft_lstnew(str2);
-	t_list *new_node = ft_lstnew(str_new);
-	t_list *root = node1;
+	t_list *root = NULL;
 	node1->next = node2;
-	t_list *ptr = root;
-
-	printf("first node value: %s\n", (char *)root->content);
-	ft_lstadd_front(&ptr, new_node);
-	root = ptr;
-	printf("first node value: %s\n", (char *)root->content);
+	t_list *last_node = ft_lstlast(root);
+	printf("last node's content: %s\n", (char *)last_node->content);
 	free(node1);
 	free(node2);
-	free(new_node);
 	return (0);
 }
 */
