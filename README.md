@@ -30,7 +30,7 @@ To create the extended version of the library (`libft_full`), run `make full` in
 
 The library contains the following functions:
 
-- Character classification
+Character classification
 | **Function** | **Short Description**                                     |
 | ------------ | --------------------------------------------------------- |
 | ft_isalpha   | Checks if a character is an alphabet (A-Z or a-z)         |
@@ -42,7 +42,7 @@ The library contains the following functions:
 | ft_tolower   | Converts an uppercase character to lowercase              |
 
 
-- String Manipulation
+String Manipulation
 | **Function** | **Short Description**                                             |
 | ------------ | ----------------------------------------------------------------- |
 | ft_strlen    | Calculates the length of a string                                 |
@@ -65,14 +65,14 @@ The library contains the following functions:
 | ft_split     | Splits a string into an array of substrings                       |
 
 
-- Memory allocation
+Memory allocation
 | **Function** | **Short Description**                                       |
 | ------------ | ----------------------------------------------------------- |
 | ft_calloc    | Allocates memory for an array and initializes it with zeros |
 | ft_strdup    | Duplicates a string in memory                               |
 
 
-- Character output
+Character output
 | **Function**  | **Short Description**                                                |
 | ------------- | -------------------------------------------------------------------- |
 | ft_putchar_fd | Writes a character to a specified file descriptor                    |
@@ -81,7 +81,7 @@ The library contains the following functions:
 | ft_putnbr_fd  | Writes an integer to a specified file descriptor                     |
 
 
-- Linked list operations
+Linked list operations
 | **Function**    | **Short Description**                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------- |
 | ft_lstnew       | Creates a new list node                                                                              |
@@ -95,7 +95,7 @@ The library contains the following functions:
 | ft_lstmap       | Iterates through a list, applies a function to each element, and creates a new list with the results |
 
 
-- Other
+Other
 | **Function**  | **Short Description**                                  |
 | ------------- | ------------------------------------------------------ |
 | ft_printf     | Prints formatted output to the standard output         |
