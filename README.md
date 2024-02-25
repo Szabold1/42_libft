@@ -28,8 +28,6 @@ To create the extended version of the library (`libft_full`), run `make full` in
 
 ## Library functions
 
-The library contains the following functions:
-
 Character classification
 | **Function** | **Short Description**                                     |
 | ------------ | --------------------------------------------------------- |
