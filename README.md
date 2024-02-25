@@ -16,15 +16,15 @@ Libft is a project aimed at recreating some of the standard C library functions 
 
 ## Directory structure
 
-- libft: Contains the mandatory part of the library.
-- libft_extended: Contains an extended version of the library with additional functionality.
+- 📁 libft: Contains the mandatory part of the library.
+- 📁 libft_extended: Contains an extended version of the library with additional functionality.
 
 ## Usage
 
-To create the `libft` library, run `make` inside the libft or libft_extended folder.
+To create the `libft` library, run `make` inside the 📁 libft or 📁 libft_extended folder.
 After that, if you want to create the additional bonus part, run `make bonus`.
 
-To create the extended version of the library (`libft_full`), run `make full` inside the libft_extended folder.
+To create the extended version of the library (`libft_full`), run `make full` inside the 📁 libft_extended folder.
 
 ## Library functions
 
