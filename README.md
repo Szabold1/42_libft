@@ -4,7 +4,7 @@
   <a href="#about">About</a> &#xa0; | &#xa0; 
   <a href="#directory-structure">Directory structure</a> &#xa0; | &#xa0;
   <a href="#usage">Usage</a> &#xa0; | &#xa0;
-  <a href="#allowed-functions">Allowed functions</a> &#xa0; | &#xa0;
+  <a href="#library-functions">Library functions</a> &#xa0; | &#xa0;
   <a href="https://github.com/Szabold1" target="_blank">Author</a>
 </p>
 
@@ -32,7 +32,8 @@ The library contains the following functions:
 
 | **Function** | **Short Description**                                         |
 | ------------ | ------------------------------------------------------------- |
-| **Character Classification** |                                               |
+| **Character Classification**                                                 |
+| ---------------------------------------------------------------------------- |
 | ft_isalpha   | Checks if a character is an alphabet (A-Z or a-z)             |
 | ft_isdigit   | Checks if a character is a digit (0-9)                        |
 | ft_isalnum   | Checks if a character is alphanumeric (alphabet or digit)     |
