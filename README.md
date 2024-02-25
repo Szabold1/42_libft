@@ -21,7 +21,7 @@ Libft is a project aimed at recreating some of the standard C library functions 
 
 ## Usage
 
-To create the `libft` library, run `make` inside the libft, or libft_extended folder.
+To create the `libft` library, run `make` inside the libft or libft_extended folder.
 After that, if you want to create the additional bonus part, run `make bonus`.
 
 To create the extended version of the library (`libft_full`), run `make full` inside the libft_extended folder.
@@ -32,7 +32,7 @@ The library contains the following functions:
 
 | **Function** | **Short Description**                                         |
 | ------------ | ------------------------------------------------------------- |
-| **Character Classification**                                                 |
+| **Character Classification** |                                               |
 | ft_isalpha   | Checks if a character is an alphabet (A-Z or a-z)             |
 | ft_isdigit   | Checks if a character is a digit (0-9)                        |
 | ft_isalnum   | Checks if a character is alphanumeric (alphabet or digit)     |
